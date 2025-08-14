@@ -11,12 +11,10 @@ from torchvision import transforms
 # 1 - 49: Not Defective
 # 50 - 61: Defective
 class Image_dataset(Dataset):
-    def __init__(self, root_dir, transform = None):
+    def __init__(self, root_dir):
         super().__init__()
         self.root_dir = root_dir
         self.list_files = os.listdir(root_dir)
-
-        self.transform = transform
     
         self.transform = transforms.Compose([
             transforms.Resize((256, 256)),

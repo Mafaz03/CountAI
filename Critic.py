@@ -55,6 +55,6 @@ class Discriminator(nn.Module):
     
     def forward(self, x):
         X = self.initial(x)
-        print(X.shape)
+        # print(X.shape)
         return self.all(X)
         
