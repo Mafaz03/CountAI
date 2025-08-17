@@ -47,4 +47,4 @@ iface = gr.Interface(
     description="Upload an image to check if it's defective or not."
 )
 
-iface.launch()
+iface.launch(share=True)
