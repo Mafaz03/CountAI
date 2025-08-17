@@ -7,7 +7,7 @@ from torch import nn
 from Critic import Discriminator
 
 critic = Discriminator(in_channels=3)
-critic.load_state_dict(torch.load("critic_model.pth", map_location=torch.device('cpu')))
+critic.load_state_dict(torch.load("critic.pth", map_location=torch.device('cpu')))
 critic.eval()
 
 BCE = nn.BCEWithLogitsLoss()
@@ -37,7 +37,7 @@ def check_defective(image):
     if mean_score > 0.5:
         return f"Not Defective ✅ (score: {mean_score:.2f})"
     else:
-        return f"Defective ❌ (score: {mean_score:.2f})"
+        return f"Defective ❌ (score: {1 - mean_score:.2f})"
 
 iface = gr.Interface(
     fn=check_defective,
