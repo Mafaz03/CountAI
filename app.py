@@ -42,7 +42,7 @@ def check_defective(image):
 iface = gr.Interface(
     fn=check_defective,
     inputs=gr.Image(type="pil"),
-    outputs="text",
+    outputs=gr.Textbox(),
     title="Defect Detector",
     description="Upload an image to check if it's defective or not."
 )

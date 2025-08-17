@@ -3,3 +3,5 @@ torchvision
 Pillow
 numpy
 matplotlib
+pydantic==2.10.6
+gradio
