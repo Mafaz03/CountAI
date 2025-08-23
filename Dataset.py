@@ -10,6 +10,8 @@ from torchvision import transforms
 
 # 1 - 49: Not Defective
 # 50 - 61: Defective
+
+# Image Dataset Loader
 class Image_dataset(Dataset):
     def __init__(self, root_dir):
         super().__init__()

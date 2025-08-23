@@ -1,3 +1,3 @@
 LEARNING_RATE = 2e-4
 DEVICE = "cpu"
-EPOCHS = 3
+EPOCHS = 10

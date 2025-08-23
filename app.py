@@ -6,12 +6,14 @@ from torch import nn
 
 from Critic import Discriminator
 
+# Loading in the model weights
 critic = Discriminator(in_channels=3)
 critic.load_state_dict(torch.load("critic.pth", map_location=torch.device('cpu')))
 critic.eval()
 
-BCE = nn.BCEWithLogitsLoss()
+# BCE = nn.BCEWithLogitsLoss()
 
+# Loading in the same transform so that model performance remains the same
 transform = transforms.Compose([
     transforms.Resize((256, 256)),
     transforms.ToTensor(),
@@ -39,6 +41,7 @@ def check_defective(image):
     else:
         return f"Defective ❌ (score: {1 - mean_score:.2f})"
 
+# launching Gradio Interface
 iface = gr.Interface(
     fn=check_defective,
     inputs=gr.Image(type="pil"),
